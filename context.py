@@ -28,9 +28,11 @@ def get_context(lemma):
 
     data = json.loads(r.text)
 
+    source_title = data['document_groups'][0][0]['document_info']['title']
+
     snippet_words = data['document_groups'][0][0]['snippets'][0]['words']
 
-    return ''.join([x['text'] for x in snippet_words]).strip()
+    return ''.join([x['text'] for x in snippet_words]).strip().replace('\\t', '\t'), source_title
 
 
 if __name__ == "__main__":

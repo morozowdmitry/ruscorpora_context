@@ -17,8 +17,8 @@ logger = logging.getLogger(__name__)
 
 
 def format_reply_message(lemma):
-    context = get_context(lemma)
-    return f"Ваш случайный контекст:\n\n{context}"
+    context, source = get_context(lemma)
+    return f"Ваш случайный контекст:\n\n{context}\n\nИсточник: {source}"
 
 
 # Define a few command handlers. These usually take the two arguments update and
