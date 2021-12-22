@@ -28,6 +28,9 @@ def get_context(lemma):
 
     data = json.loads(r.text)
 
+    if not data.get('document_groups'):
+        return None, None
+
     source_title = data['document_groups'][0][0]['document_info']['title']
 
     snippet_words = data['document_groups'][0][0]['snippets'][0]['words']

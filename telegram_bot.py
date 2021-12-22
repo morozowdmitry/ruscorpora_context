@@ -18,6 +18,8 @@ logger = logging.getLogger(__name__)
 
 def format_reply_message(lemma):
     context, source = get_context(lemma)
+    if not context:
+        return 'Это слово не найдено. Попробуйте другой запрос.'
     return f"Ваш случайный контекст:\n\n{context}\n\nИсточник: {source}"
 
 
